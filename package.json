@@ -4,7 +4,7 @@
   "description": "A simple site generator",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ts-node/register -r src/**/*.spect.ts"
+    "test": "mocha ts-node/register -r src/**/*.spec.ts"
   },
   "keywords": [
     "Static",
