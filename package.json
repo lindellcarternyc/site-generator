@@ -1,0 +1,22 @@
+{
+  "name": "site-generator",
+  "version": "1.0.0",
+  "description": "A simple site generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Static",
+    "Site",
+    "Generator"
+  ],
+  "author": "Lindell",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/mocha": "^2.2.44",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
