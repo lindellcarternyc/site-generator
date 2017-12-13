@@ -1,5 +1,6 @@
 import * as FS from 'fs'
 import * as Path from 'path'
+import * as pug from 'pug'
 
 interface Folder {
   name: string
@@ -23,6 +24,14 @@ export const getTemplateFolder = (foldername: string = 'views'): Folder => {
 
 interface Template {
   path: string
+  func?: pug.compileTemplate
+}
+
+interface StringIndexedObject<T> {
+  [key: string]: T
+}
+interface CompiledFunc<T> {
+  func: (data: StringIndexedObject<T>) => string
 }
 
 interface TemplateCollection {
@@ -45,4 +54,19 @@ export const getTemplateFilesFromFolder = (folder: Folder): TemplateCollection =
   })
 
   return collection
+}
+
+export const compileTemplateCollection = (collection: TemplateCollection): TemplateCollection => {
+  const compiled: TemplateCollection = {
+
+  }
+  for (const name of Object.keys(collection)) {
+    const path = collection[name].path
+    const func = pug.compileFile(path)
+    compiled[name] = {
+      path,
+      func
+    }
+  }
+  return compiled
 }
